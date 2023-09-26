@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7711989448988973676}
   - component: {fileID: 993711594146453625}
+  - component: {fileID: 4934420759501807233}
   m_Layer: 0
   m_Name: Torokko,in,Enel
   m_TagString: Untagged
@@ -55,6 +56,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &4934420759501807233
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3922420698173745828}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 755198b730011e0459cd41cba89747ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5367047890705639815
 GameObject:
   m_ObjectHideFlags: 0
