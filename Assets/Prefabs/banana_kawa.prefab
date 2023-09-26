@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6661194492546784188}
   - component: {fileID: 2502381483041555286}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: banana_kawa
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
