@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb2d;
-    int life = 2;
+    public int life = 2;
     bool isJumping = false;
     SpriteRenderer rd;
     // BoxCollider2D bc2d;
