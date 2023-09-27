@@ -116,14 +116,11 @@ public class PlayerController : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Player");
         */
 
-        // 新しいレイヤーの名前を指定
         string oldLayerName = "Player";
 
-        // 新しいレイヤーのIDを取得
         int oldLayerID = LayerMask.NameToLayer(oldLayerName);
         foreach(Transform child in parentObject.transform)
         {
-            // 子オブジェクトのレイヤーを変更
             child.gameObject.layer = oldLayerID;
         }
         
