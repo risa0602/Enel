@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb2d;
-    // int life = 2;
+    int life = 2;
     bool isJumping = false;
     SpriteRenderer rd;
     // BoxCollider2D bc2d;
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        rd = GetComponent<SpriteRenderer>();
+        rd = GetComponentInChildren<SpriteRenderer>();
         // bc2d = GetComponent<BoxCollider2D>();
     }
     void Update()
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         // if (rb2d.isKinematic) return;
         rb2d.velocity = new Vector2(0.0f, jumpVelocity);
     }
-/*
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Floor"))
@@ -93,7 +93,6 @@ public class PlayerController : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Player");
         
     }
-*/
     // void ApplyAngle(){
     // float targetAngle;
 
