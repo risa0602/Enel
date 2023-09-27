@@ -362,11 +362,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6661194492546784188, guid: bab60bf96a7e9b44cbda45d7b27efc46, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.86
+      value: 12.3334
       objectReference: {fileID: 0}
     - target: {fileID: 6661194492546784188, guid: bab60bf96a7e9b44cbda45d7b27efc46, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.82
+      value: -2.1574
       objectReference: {fileID: 0}
     - target: {fileID: 6661194492546784188, guid: bab60bf96a7e9b44cbda45d7b27efc46, type: 3}
       propertyPath: m_LocalPosition.z
@@ -531,25 +531,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 993711594146453625, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 3922420698173745828, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
       propertyPath: m_Name
       value: Torokko,in,Enel
-      objectReference: {fileID: 0}
-    - target: {fileID: 3922420698173745828, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5367047890705639815, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5728821115167548355, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7711989448988973676, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
       propertyPath: m_RootOrder
@@ -597,88 +581,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
---- !u!1 &2054893882 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3922420698173745828, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
-  m_PrefabInstance: {fileID: 2054893881}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2054893884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2054893882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d115310ad6ee54419fc4dd8e7f25913, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpVelocity: 30
---- !u!1 &2091550000 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4956877191582253547, guid: bab60bf96a7e9b44cbda45d7b27efc46, type: 3}
-  m_PrefabInstance: {fileID: 1477853512}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2091550003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2091550000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3922d9e879b8b84fb0c4336d336d853, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 8
-  startPosition: 0
-  endPosition: 0
---- !u!61 &2091550004
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2091550000}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 3.63}
-    newSize: {x: 4, y: 3.63}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4, y: 3.63}
-  m_EdgeRadius: 0
---- !u!1 &2117238299 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5367047890705639815, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
-  m_PrefabInstance: {fileID: 2054893881}
-  m_PrefabAsset: {fileID: 0}
---- !u!70 &2117238301
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117238299}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.16}
-  m_Size: {x: 3, y: 0.1}
-  m_Direction: 1

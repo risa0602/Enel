@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb2d;
-    int life = 2;
+    // int life = 2;
     bool isJumping = false;
-    SpriteRenderer renderer;
+    SpriteRenderer rd;
     // BoxCollider2D bc2d;
     // bool isHit;
     // Animator animator;
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        rd = GetComponent<SpriteRenderer>();
         // bc2d = GetComponent<BoxCollider2D>();
     }
     void Update()
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         // if (rb2d.isKinematic) return;
         rb2d.velocity = new Vector2(0.0f, jumpVelocity);
     }
-
+/*
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Floor"))
@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
         //Enemyとぶつかった時にコルーチンを実行
         if (col.gameObject.tag == "Enemy")
         {
+            life--;
             StartCoroutine("Damage");
         }
     }
@@ -74,23 +75,25 @@ public class PlayerController : MonoBehaviour
         //レイヤーをPlayerDamageに変更
         gameObject.layer = LayerMask.NameToLayer("PlayerDamage");
         //while文を10回ループ
+        
         int count = 10;
         while (count > 0)
         {
             //透明にする
-            renderer.material.color = new Color(1, 1, 1, 0);
+            rd.material.color = new Color(1, 1, 1, 0);
             //0.05秒待つ
             yield return new WaitForSeconds(0.05f);
             //元に戻す
-            renderer.material.color = new Color(1, 1, 1, 1);
+            rd.material.color = new Color(1, 1, 1, 1);
             //0.05秒待つ
             yield return new WaitForSeconds(0.05f);
             count--;
         }
         //レイヤーをPlayerに戻す
         gameObject.layer = LayerMask.NameToLayer("Player");
+        
     }
-
+*/
     // void ApplyAngle(){
     // float targetAngle;
 
