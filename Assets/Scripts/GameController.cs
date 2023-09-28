@@ -14,11 +14,11 @@ public class GameController : MonoBehaviour
         if(pl.life <= 0)
         {
             enabled = false;
-            Invoke("ReturunToTitle",2.0f);
+            Invoke("ReturnToTitle",2.0f);
         }
     }
-    void ReturnTotitle()
+    void ReturnToTitle()
     {
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("TitleCo");
     }
 }
