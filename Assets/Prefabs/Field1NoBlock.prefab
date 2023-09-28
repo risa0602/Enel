@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3626558008432999457}
   m_Layer: 0
   m_Name: Field1NoBlock
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  startPosition: 0
-  endPosition: -8
+  startPosition: 18
+  endPosition: -20
 --- !u!1001 &3188694751583211750
 PrefabInstance:
   m_ObjectHideFlags: 0
