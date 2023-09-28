@@ -73,6 +73,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log("life=" + life);
             StartCoroutine("Damage");
         }
+        else if (col.gameObject.tag == "DeathPoint")
+        {
+            life -= 2;//DeathPointに当たると2ダメージ
+            Debug.Log("life="+life);
+        }
     }
 
     IEnumerator Damage()

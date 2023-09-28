@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Gamecontroller : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     public PlayerController pl;
     public LifePanel lifePanel;
@@ -14,11 +14,11 @@ public class Gamecontroller : MonoBehaviour
         if(pl.life <= 0)
         {
             enabled = false;
-            Invoke("ReturunToTitle",2.0f);
+            Invoke("ReturnToTitle",2.0f);
         }
     }
-    void ReturnTotile()
+    void ReturnToTitle()
     {
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("TitleCo");
     }
 }
