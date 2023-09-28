@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2502381483041555286}
   - component: {fileID: 2091550005}
   - component: {fileID: 2091550004}
-  - component: {fileID: 2091550003}
+  - component: {fileID: 8402579814310313279}
+  - component: {fileID: 1370732087393471731}
   m_Layer: 8
-  m_Name: banana_kawa
+  m_Name: Big_Banana
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +108,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &2091550004
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -134,7 +135,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.5, y: 2.7}
   m_EdgeRadius: 0
---- !u!114 &2091550003
+--- !u!114 &8402579814310313279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4956877191582253547}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d75dae715c1efe4e9fb662fec4bc24a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+--- !u!114 &1370732087393471731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,5 +161,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  startPosition: 0
-  endPosition: 0
+  startPosition: 18
+  endPosition: -20
