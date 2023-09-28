@@ -75,11 +75,15 @@ public class PlayerController : MonoBehaviour
         }
         else if (col.gameObject.tag == "DeathPoint")
         {
-            life -= 2;//DeathPointに当たると2ダメージ
+            life -= 99999;//DeathPointに当たると99999ダメージ
+            Debug.Log("life="+life);
+        }
+        else if(col.gameObject.tag == "Recovery")
+        {
+            life++;
             Debug.Log("life="+life);
         }
     }
-
     IEnumerator Damage()
     {
         // 子オブジェクトを含む親オブジェクトを取得
