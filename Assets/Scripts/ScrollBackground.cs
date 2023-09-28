@@ -12,7 +12,7 @@ public class ScrollBackground : MonoBehaviour
     {
         transform.Translate(-1 * speed * Time.deltaTime, 0, 0);
 
-        if (transform.position.x <= endPosition) ScrollEnd();
+        // if (transform.position.x <= endPosition) ScrollEnd();
     }
 
     void ScrollEnd(){
