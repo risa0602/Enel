@@ -7,6 +7,7 @@ TagManager:
   - Floor
   - Enemy
   - DeathPoint
+  - Recovery
   layers:
   - Default
   - TransparentFX
