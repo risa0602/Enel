@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 530035314}
   - component: {fileID: 530035316}
   - component: {fileID: 530035315}
+  - component: {fileID: 530035317}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -360,6 +361,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530035313}
   m_CullTransparentMesh: 1
+--- !u!114 &530035317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530035313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8a1aa6189273947b0ed0ef9deecb73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icons:
+  - {fileID: 1061454901}
+  - {fileID: 583497136}
 --- !u!1 &583497136
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,11 +740,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1136, y: 640}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96

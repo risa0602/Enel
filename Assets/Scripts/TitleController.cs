@@ -4,9 +4,9 @@ using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Title : MonoBehaviour
+public class TitleController: MonoBehaviour
 {
-    public void  OnStatButtonClicked()
+    public void OnStartButtonClicked()
     {
         SceneManager.LoadScene("Main");
     }

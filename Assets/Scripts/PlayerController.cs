@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb2d;
-    int life = 2;
+    public int life = 2;
     bool isJumping = false;
     SpriteRenderer rd;
     // BoxCollider2D bc2d;
@@ -44,6 +44,10 @@ public class PlayerController : MonoBehaviour
         // animator.SetBool("flap", angle >= 0.0f && !isDead);
     }
 
+    public int Life(){
+        return life;
+    }
+
     public void Jump()
     {
         // if (isDead) return;
@@ -66,14 +70,32 @@ public class PlayerController : MonoBehaviour
         if (col.gameObject.tag == "Enemy")
         {
             life--;
+            Debug.Log("life=" + life);
             StartCoroutine("Damage");
         }
     }
 
     IEnumerator Damage()
     {
+        // 子オブジェクトを含む親オブジェクトを取得
+        GameObject parentObject = GameObject.Find("Torokko,in,Enel");
+
+        // 新しいレイヤーの名前を指定
+        string newLayerName = "PlayerDamage";
+
+        // 新しいレイヤーのIDを取得
+        int newLayerID = LayerMask.NameToLayer(newLayerName);
+
+        // 子オブジェクトを含む親オブジェクトのすべての子オブジェクトに対して処理を行う
+        foreach(Transform child in parentObject.transform)
+        {
+            // 子オブジェクトのレイヤーを変更
+            child.gameObject.layer = newLayerID;
+        }
+        /*
         //レイヤーをPlayerDamageに変更
         gameObject.layer = LayerMask.NameToLayer("PlayerDamage");
+        */
         //while文を10回ループ
         
         int count = 10;
@@ -89,8 +111,18 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
             count--;
         }
+        /*
         //レイヤーをPlayerに戻す
         gameObject.layer = LayerMask.NameToLayer("Player");
+        */
+
+        string oldLayerName = "Player";
+
+        int oldLayerID = LayerMask.NameToLayer(oldLayerName);
+        foreach(Transform child in parentObject.transform)
+        {
+            child.gameObject.layer = oldLayerID;
+        }
         
     }
     // void ApplyAngle(){
