@@ -10,14 +10,9 @@ public class ScrollStage : MonoBehaviour
     void Update()
     {
         transform.Translate(-1 * speed * Time.deltaTime,0,0);
-        if(transform.position.x <= endPosition)ScrollEnd();
-    }
-    void ScrollEnd()
-    {
-        float diff = transform.position.x -endPosition;
-        Vector3 restartPosition = transform.position;
-        restartPosition.x = startPosition + diff;
-        transform.position = restartPosition;
-        SendMessage("OnScrollEnd",SendMessageOptions.DontRequireReceiver);
+        if(transform.position.x <= endPosition)
+        {
+            Destroy(gameObject);
+        }
     }
 }
