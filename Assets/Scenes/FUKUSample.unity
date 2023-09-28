@@ -329,6 +329,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Banana
       objectReference: {fileID: 0}
+    - target: {fileID: 4956877191582253547, guid: bb7c8664ca3f5cc42833b1c9d5bb7079, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6661194492546784188, guid: bb7c8664ca3f5cc42833b1c9d5bb7079, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -602,6 +606,10 @@ PrefabInstance:
     - target: {fileID: 4956877191582253547, guid: bb7c8664ca3f5cc42833b1c9d5bb7079, type: 3}
       propertyPath: m_Name
       value: banana_kawa
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956877191582253547, guid: bb7c8664ca3f5cc42833b1c9d5bb7079, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6661194492546784188, guid: bb7c8664ca3f5cc42833b1c9d5bb7079, type: 3}
       propertyPath: m_RootOrder
