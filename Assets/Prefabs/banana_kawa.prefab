@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2502381483041555286}
   - component: {fileID: 2091550005}
   - component: {fileID: 2091550004}
-  - component: {fileID: 2091550003}
+  - component: {fileID: 8402579814310313279}
   m_Layer: 8
   m_Name: banana_kawa
   m_TagString: Enemy
@@ -134,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.5, y: 2.7}
   m_EdgeRadius: 0
---- !u!114 &2091550003
+--- !u!114 &8402579814310313279
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,9 +143,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4956877191582253547}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3922d9e879b8b84fb0c4336d336d853, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d75dae715c1efe4e9fb662fec4bc24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  startPosition: 0
-  endPosition: 0

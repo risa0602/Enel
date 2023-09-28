@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScrollObject : MonoBehaviour
+public class ScrollBackground : MonoBehaviour
 {
     public float speed = 1.0f;
     public float startPosition;
