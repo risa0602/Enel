@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 2
+  stepOnRate: 1
   jumpVelocity: 30
 --- !u!95 &7946079351937624433
 Animator:
