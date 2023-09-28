@@ -8,11 +8,7 @@ public class PlayerController : MonoBehaviour
     public int life = 2;
     bool isJumping = false;
     SpriteRenderer rd;
-    //踏みつけ判定の高さの割合
-    float stepOnRate = 10;
-    bool isOtherJump = false;
-    float otherJumpHeight = 0.0f;
-    BoxCollider2D bc2d;
+    // BoxCollider2D bc2d;
     // bool isHit;
     // Animator animator;
     // float angle;
@@ -36,7 +32,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rd = GetComponentInChildren<SpriteRenderer>();
-        bc2d = GetComponent<BoxCollider2D>();
+        // bc2d = GetComponent<BoxCollider2D>();
     }
     void Update()
     {
@@ -48,8 +44,7 @@ public class PlayerController : MonoBehaviour
         // animator.SetBool("flap", angle >= 0.0f && !isDead);
     }
 
-    public int Life()
-    {
+    public int Life(){
         return life;
     }
 
@@ -74,95 +69,82 @@ public class PlayerController : MonoBehaviour
         //Enemyとぶつかった時にコルーチンを実行
         if (col.gameObject.tag == "Enemy")
         {
-            float stepOnHeight = (bc2d.size.y * (stepOnRate / 100f));
-            //踏みつけ判定のワールド座標
-            float judgePos = transform.position.y - (bc2d.size.y / 2f) + stepOnHeight;
-            foreach (ContactPoint2D p in col.contacts)
-            {
-                if (p.point.y < judgePos)
-                {
-                    //もう一度跳ねる
-                }
-                else
-                {
-                    life--;
-                    Debug.Log("life=" + life);
-                    StartCoroutine("Damage");
-                }
-            }
-
-            IEnumerator Damage()
-            {
-                // 子オブジェクトを含む親オブジェクトを取得
-                GameObject parentObject = GameObject.Find("Torokko,in,Enel");
-
-                // 新しいレイヤーの名前を指定
-                string newLayerName = "PlayerDamage";
-
-                // 新しいレイヤーのIDを取得
-                int newLayerID = LayerMask.NameToLayer(newLayerName);
-
-                // 子オブジェクトを含む親オブジェクトのすべての子オブジェクトに対して処理を行う
-                foreach (Transform child in parentObject.transform)
-                {
-                    // 子オブジェクトのレイヤーを変更
-                    child.gameObject.layer = newLayerID;
-                }
-                /*
-                //レイヤーをPlayerDamageに変更
-                gameObject.layer = LayerMask.NameToLayer("PlayerDamage");
-                */
-                //while文を10回ループ
-
-                int count = 10;
-                while (count > 0)
-                {
-                    //透明にする
-                    rd.material.color = new Color(1, 1, 1, 0);
-                    //0.05秒待つ
-                    yield return new WaitForSeconds(0.05f);
-                    //元に戻す
-                    rd.material.color = new Color(1, 1, 1, 1);
-                    //0.05秒待つ
-                    yield return new WaitForSeconds(0.05f);
-                    count--;
-                }
-                /*
-                //レイヤーをPlayerに戻す
-                gameObject.layer = LayerMask.NameToLayer("Player");
-                */
-
-                string oldLayerName = "Player";
-
-                int oldLayerID = LayerMask.NameToLayer(oldLayerName);
-                foreach (Transform child in parentObject.transform)
-                {
-                    child.gameObject.layer = oldLayerID;
-                }
-
-            }
-            // void ApplyAngle(){
-            // float targetAngle;
-
-            // if (isDead){
-            // targetAngle = 180.0f;
-            // } else{
-            // targetAngle = Mathf.Atan2(rb2d.velocity.y, relativeVelocityX) * Mathf.Rad2Deg;
-            // }
-
-            // angle = Mathf.LerpAngle(angle, targetAngle, Time.deltaTime * 10.0f);
-            // sprite.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, angle);
-            // }
-
-            // void OnCollisionEnter2D(Collision2D collision){
-            // if (isDead) return;
-            // Camera.main.SendMessage("Clash");
-            // isDead = true;
-            // }
-
-            // public void SetSteerActive(bool active){
-            // rb2d.isKinematic = !active;
-            // }
+            life--;
+            Debug.Log("life=" + life);
+            StartCoroutine("Damage");
         }
     }
+
+    IEnumerator Damage()
+    {
+        // 子オブジェクトを含む親オブジェクトを取得
+        GameObject parentObject = GameObject.Find("Torokko,in,Enel");
+
+        // 新しいレイヤーの名前を指定
+        string newLayerName = "PlayerDamage";
+
+        // 新しいレイヤーのIDを取得
+        int newLayerID = LayerMask.NameToLayer(newLayerName);
+
+        // 子オブジェクトを含む親オブジェクトのすべての子オブジェクトに対して処理を行う
+        foreach(Transform child in parentObject.transform)
+        {
+            // 子オブジェクトのレイヤーを変更
+            child.gameObject.layer = newLayerID;
+        }
+        /*
+        //レイヤーをPlayerDamageに変更
+        gameObject.layer = LayerMask.NameToLayer("PlayerDamage");
+        */
+        //while文を10回ループ
+        
+        int count = 10;
+        while (count > 0)
+        {
+            //透明にする
+            rd.material.color = new Color(1, 1, 1, 0);
+            //0.05秒待つ
+            yield return new WaitForSeconds(0.05f);
+            //元に戻す
+            rd.material.color = new Color(1, 1, 1, 1);
+            //0.05秒待つ
+            yield return new WaitForSeconds(0.05f);
+            count--;
+        }
+        /*
+        //レイヤーをPlayerに戻す
+        gameObject.layer = LayerMask.NameToLayer("Player");
+        */
+
+        string oldLayerName = "Player";
+
+        int oldLayerID = LayerMask.NameToLayer(oldLayerName);
+        foreach(Transform child in parentObject.transform)
+        {
+            child.gameObject.layer = oldLayerID;
+        }
+        
+    }
+    // void ApplyAngle(){
+    // float targetAngle;
+
+    // if (isDead){
+    // targetAngle = 180.0f;
+    // } else{
+    // targetAngle = Mathf.Atan2(rb2d.velocity.y, relativeVelocityX) * Mathf.Rad2Deg;
+    // }
+
+    // angle = Mathf.LerpAngle(angle, targetAngle, Time.deltaTime * 10.0f);
+    // sprite.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, angle);
+    // }
+
+    // void OnCollisionEnter2D(Collision2D collision){
+    // if (isDead) return;
+    // Camera.main.SendMessage("Clash");
+    // isDead = true;
+    // }
+
+    // public void SetSteerActive(bool active){
+    // rb2d.isKinematic = !active;
+    // }
 }
