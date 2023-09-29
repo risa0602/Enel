@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 2
-  jumpVelocity: 30
+  jumpVelocity: 25
 --- !u!95 &7946079351937624433
 Animator:
   serializedVersion: 5
