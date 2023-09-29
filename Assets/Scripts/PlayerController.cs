@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer rd;
     BoxCollider2D bc2d;
     float otherJumpHeight;
-
     [Header("ジャンプ力")] public float jumpVelocity;
+    Animator animator;
 
     void Awake()
     {
@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
             {
                 life--;
                 Debug.Log("life=" + life);
+                Camera.main.SendMessage("Clash");
                 StartCoroutine("Damage");
             }
         }
@@ -87,6 +88,12 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator Damage()
     {
+        /* 一瞬時間を止める処理、保留
+        Time.timeScale = 0.0f;
+        yield return new WaitForSecondsRealtime(0.05f);
+        Time.timeScale = 1.0f;
+        */
+
         // 子オブジェクトを含む親オブジェクトを取得
         GameObject parentObject = GameObject.Find("Torokko,in,Enel");
 
