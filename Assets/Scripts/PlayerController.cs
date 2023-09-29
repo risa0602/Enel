@@ -5,18 +5,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb2d;
-    public int life = 2;
-    bool isJumping = false;
-    // bool isEnemyOnJumping = false;
     SpriteRenderer rd;
     BoxCollider2D bc2d;
-    float otherJumpHeight;
+    public int life = 2;
+    bool isJumping = false;
+    bool isEnemyOnJumping = false;
     [Header("ジャンプ力")] public float jumpVelocity;
+    float otherJumpHeight;
     Animator animator;
+    public GameObject sprite;
 
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        // animator = sprite.Getcomponent<Animator>();
     }
 
     void Start()
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && !isJumping && !(rb2d.velocity.y < -0.5f))
         {
             Jump();
+            // animator.SetBool("jump", true);
         }
     }
 
@@ -79,20 +82,19 @@ public class PlayerController : MonoBehaviour
         {
             life -= 99999;//DeathPointに当たると99999ダメージ
             Debug.Log("life=" + life);
+            Camera.main.SendMessage("Clash");
         }
         else if (col.gameObject.tag == "Recovery")
         {
-            life++;
-            Debug.Log("life=" + life);
+            if (life < 2)
+            {
+                life++;
+                Debug.Log("life=" + life);
+            }
         }
     }
     IEnumerator Damage()
     {
-        /* 一瞬時間を止める処理、保留
-        Time.timeScale = 0.0f;
-        yield return new WaitForSecondsRealtime(0.05f);
-        Time.timeScale = 1.0f;
-        */
 
         // 子オブジェクトを含む親オブジェクトを取得
         GameObject parentObject = GameObject.Find("Torokko,in,Enel");
