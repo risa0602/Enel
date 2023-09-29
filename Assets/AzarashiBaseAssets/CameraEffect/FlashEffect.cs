@@ -33,7 +33,7 @@ class FlashEffect : MonoBehaviour
         float dim = Mathf.Clamp01(Time.deltaTime * 2.0f);
         alpha = Mathf.Clamp01(alpha - dim);
 
-        // GUI.color = new Color(1.0f, 1.0f, 1.0f, alpha);
+        GUI.color = new Color(1.0f, 1.0f, 1.0f, alpha);
         GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), texture);
 
         if (alpha == 0.0f)
