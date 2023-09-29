@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class HierarchyOff : MonoBehaviour
 {
-    void OncollisonEnter2D(Collider2D col)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if(col.gameObject.tag == "Recovery");
+        if (collision.gameObject.CompareTag("Recovery"))
         {
-        Destroy(col.gameObject);
+            // "Recovery" タグのオブジェクトに当たったら削除する
+            Destroy(collision.gameObject);
         }
     }
 }
