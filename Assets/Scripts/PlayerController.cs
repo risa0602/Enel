@@ -7,27 +7,16 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb2d;
     public int life = 2;
     bool isJumping = false;
-    bool isEnemyOnJumping = false;
+    // bool isEnemyOnJumping = false;
     SpriteRenderer rd;
     BoxCollider2D bc2d;
     float otherJumpHeight;
-    // bool isHit;
-    // Animator animator;
-    // float angle;
-    // bool isDead;
 
-    [Header("ジャンプ力")]public float jumpVelocity;
-    // public float relativeVelocityX;
-    // public GameObject sprite;
-
-    // public bool IsDead(){
-    // return isDead;
-    // }
+    [Header("ジャンプ力")] public float jumpVelocity;
 
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        //    animator = sprite.GetComponent<Animator>();
     }
 
     void Start()
@@ -41,8 +30,6 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
-        // ApplyAngle();
-        // animator.SetBool("flap", angle >= 0.0f && !isDead);
     }
 
     public int Life()
@@ -52,9 +39,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        // if (isDead) return;
         isJumping = true;
-        // if (rb2d.isKinematic) return;
         rb2d.velocity = new Vector2(0.0f, jumpVelocity);
     }
 
@@ -73,21 +58,21 @@ public class PlayerController : MonoBehaviour
         {
             float halfScaleY = transform.lossyScale.y / 2.0f;
             float enemyHalfScaleY = col.transform.lossyScale.y / 2.0f;
-                if (transform.position.y - (halfScaleY - 0.1f) >= col.transform.position.y + (enemyHalfScaleY - 0.1f))
-                {
-                    //もう一度跳ねる
-                    ObjectCollision o = col.gameObject.GetComponent<ObjectCollision>();
-                    otherJumpHeight = o.boundHeight;
-                    o.playerStepOn = true;
-                    isEnemyOnJumping = true;
-                    rb2d.velocity = new Vector2(0.0f, otherJumpHeight);
-                }
-                else
-                {
-                    life--;
-                    Debug.Log("life=" + life);
-                    StartCoroutine("Damage");
-                }
+            if (transform.position.y - (halfScaleY - 0.1f) >= col.transform.position.y + (enemyHalfScaleY - 0.1f))
+            {
+                //もう一度跳ねる
+                ObjectCollision o = col.gameObject.GetComponent<ObjectCollision>();
+                otherJumpHeight = o.boundHeight;
+                o.playerStepOn = true;
+                // isEnemyOnJumping = true;
+                rb2d.velocity = new Vector2(0.0f, otherJumpHeight);
+            }
+            else
+            {
+                life--;
+                Debug.Log("life=" + life);
+                StartCoroutine("Damage");
+            }
         }
         else if (col.gameObject.tag == "DeathPoint")
         {
@@ -117,8 +102,8 @@ public class PlayerController : MonoBehaviour
             // 子オブジェクトのレイヤーを変更
             child.gameObject.layer = newLayerID;
         }
-        //while文を10回ループ
 
+        //while文を10回ループ
         int count = 10;
         while (count > 0)
         {
@@ -140,28 +125,5 @@ public class PlayerController : MonoBehaviour
         {
             child.gameObject.layer = oldLayerID;
         }
-
     }
-    // void ApplyAngle(){
-    // float targetAngle;
-
-    // if (isDead){
-    // targetAngle = 180.0f;
-    // } else{
-    // targetAngle = Mathf.Atan2(rb2d.velocity.y, relativeVelocityX) * Mathf.Rad2Deg;
-    // }
-
-    // angle = Mathf.LerpAngle(angle, targetAngle, Time.deltaTime * 10.0f);
-    // sprite.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, angle);
-    // }
-
-    // void OnCollisionEnter2D(Collision2D collision){
-    // if (isDead) return;
-    // Camera.main.SendMessage("Clash");
-    // isDead = true;
-    // }
-
-    // public void SetSteerActive(bool active){
-    // rb2d.isKinematic = !active;
-    // }
 }
