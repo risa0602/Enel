@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb2d;
+    float angle;
     public int life = 2;
     bool isJumping = false;
     // bool isEnemyOnJumping = false;
