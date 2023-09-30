@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class GoalController : MonoBehaviour
 {
-    Rigidbody2D rb2d;
-    Animator animator;
-    float angle;
-
-    public float maxHeight;
-    public float flapVelocity;
-    public float relateveVelocityX;
-    public GameObject sprite;
-    void Awake() 
+    AudioSource _audio;
+    void Start() 
     {
-       rb2d = GetComponent<Rigidbody2D>();
-       animator = sprite.GetComponent<Animator>(); 
+        _audio = GetComponent<AudioSource>();
+    }
+    void OnCollisionEnter2D(Collision2D other) {
+        _audio.Play(); 
+        
     }
 }
