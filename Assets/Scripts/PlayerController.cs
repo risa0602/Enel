@@ -9,16 +9,16 @@ public class PlayerController : MonoBehaviour
     BoxCollider2D bc2d;
     public int life = 2;
     bool isJumping = false;
-    bool isEnemyOnJumping = false;
+    // bool isEnemyOnJumping = false;
     [Header("ジャンプ力")] public float jumpVelocity;
     float otherJumpHeight;
     Animator animator;
-    public GameObject sprite;
+    // public GameObject enel;
 
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        // animator = sprite.Getcomponent<Animator>();
+        // animator = GetComponentInChildren<Animator>();
     }
 
     void Start()
@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && !isJumping && !(rb2d.velocity.y < -0.5f))
         {
             Jump();
-            // animator.SetBool("jump", true);
         }
     }
 
@@ -44,6 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         isJumping = true;
         rb2d.velocity = new Vector2(0.0f, jumpVelocity);
+        // animator.SetBool("jump", isJumping);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
                 o.playerStepOn = true;
                 // isEnemyOnJumping = true;
                 rb2d.velocity = new Vector2(0.0f, otherJumpHeight);
+                // animator.SetBool("jump", isEnemyOnJumping);
             }
             else
             {
