@@ -70,7 +70,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 2
   jumpVelocity: 25
-  sprite: {fileID: 0}
 --- !u!1 &5367047890705639815
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +180,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.0095263, y: 2.4192567}
+  m_Size: {x: 2.6, y: 2.4192567}
   m_EdgeRadius: 0
 --- !u!70 &2117238301
 CapsuleCollider2D:

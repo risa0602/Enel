@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        // animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     void Start()
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         isJumping = true;
         rb2d.velocity = new Vector2(0.0f, jumpVelocity);
-        // animator.SetBool("jump", isJumping);
+        animator.SetBool("jump", isJumping);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
