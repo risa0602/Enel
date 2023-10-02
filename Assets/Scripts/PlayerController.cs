@@ -12,13 +12,13 @@ public class PlayerController : MonoBehaviour
     // bool isEnemyOnJumping = false;
     [Header("ジャンプ力")] public float jumpVelocity;
     float otherJumpHeight;
-    Animator animator;
-    // public GameObject enel;
+    public Animator childanimatorEnel;
+    public Animator childanimatorTorokko;
+    public Vector2 targetPosition;
 
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
     }
 
     void Start()
@@ -32,6 +32,12 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+        childanimatorEnel.SetBool("jump", isJumping);
+        childanimatorTorokko.SetBool("jump", isJumping);
+        // if (childanimatorEnel.GetCurrentAnimatorStateInfo(0).IsName("EnelBodyJump"))
+        // {
+            // transform.position = Vector2.Lerp(transform.position, targetPosition, Time.deltaTime * 2f);
+        // }
     }
 
     public int Life()
@@ -43,7 +49,6 @@ public class PlayerController : MonoBehaviour
     {
         isJumping = true;
         rb2d.velocity = new Vector2(0.0f, jumpVelocity);
-        animator.SetBool("jump", isJumping);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
