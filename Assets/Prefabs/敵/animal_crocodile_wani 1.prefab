@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 9128242714792639579}
   - component: {fileID: 1615005893525922932}
   - component: {fileID: 4586220463963456893}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: animal_crocodile_wani 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4182733580077914921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.39030084, y: 0.45547295, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6506383177450383262}
@@ -151,7 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6506383177450383262}
   - component: {fileID: 4983235666320803047}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mizutamari_blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 41bc0562f20937249bd903d9753f5b7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
