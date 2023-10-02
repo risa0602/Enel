@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -14,7 +15,6 @@ public class PlayerController : MonoBehaviour
     float otherJumpHeight;
     public Animator childanimatorEnel;
     public Animator childanimatorTorokko;
-    public Vector2 targetPosition;
 
     void Awake()
     {
@@ -34,10 +34,6 @@ public class PlayerController : MonoBehaviour
         }
         childanimatorEnel.SetBool("jump", isJumping);
         childanimatorTorokko.SetBool("jump", isJumping);
-        // if (childanimatorEnel.GetCurrentAnimatorStateInfo(0).IsName("EnelBodyJump"))
-        // {
-            // transform.position = Vector2.Lerp(transform.position, targetPosition, Time.deltaTime * 2f);
-        // }
     }
 
     public int Life()
