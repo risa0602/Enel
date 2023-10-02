@@ -233,6 +233,8 @@ GameObject:
   - component: {fileID: 5641167620635491890}
   - component: {fileID: 6612369783576736840}
   - component: {fileID: 8406469436891846223}
+  - component: {fileID: 922607336}
+  - component: {fileID: 922607340}
   m_Layer: 6
   m_Name: Enel
   m_TagString: Untagged
@@ -328,3 +330,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &922607336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5728821115167548355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b821c48ba330840ae241b8e8d249c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &922607340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5728821115167548355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4403b55fdb32e3040b7e15d65695d2e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
