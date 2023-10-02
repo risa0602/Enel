@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2228723693863593652}
   - component: {fileID: 3787602618034649862}
   - component: {fileID: 1758827793835704560}
+  - component: {fileID: 5480424345470978273}
   m_Layer: 8
   m_Name: character_cthulhu_cyaegha_red
   m_TagString: Enemy
@@ -140,3 +141,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+--- !u!50 &5480424345470978273
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8716761596846109650}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
