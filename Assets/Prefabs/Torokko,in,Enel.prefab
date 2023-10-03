@@ -72,6 +72,8 @@ MonoBehaviour:
   jumpVelocity: 25
   childanimatorEnel: {fileID: 8406469436891846223}
   childanimatorTorokko: {fileID: 6030895249709104448}
+  gameObjectToDisable: {fileID: 3922420698173745828}
+  gameObjectToEnable: {fileID: 2350087844132639754, guid: d243a2b1dc13e3c43aa78f44f6065032, type: 3}
 --- !u!1 &5367047890705639815
 GameObject:
   m_ObjectHideFlags: 0
