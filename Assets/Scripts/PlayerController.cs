@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
     float otherJumpHeight;
     public Animator childanimatorEnel;
     public Animator childanimatorTorokko;
+    public GameObject gameObjectToDisable;
+    public GameObject gameObjectToEnable;
 
     void Awake()
     {
@@ -32,8 +35,14 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
-        childanimatorEnel.SetBool("jump", isJumping);
-        childanimatorTorokko.SetBool("jump", isJumping);
+        if ( life <= 0)
+        {
+            DisableGameObject();
+        }
+        else
+        {
+            EnableGameObject();
+        }
     }
 
     public int Life()
@@ -45,6 +54,8 @@ public class PlayerController : MonoBehaviour
     {
         isJumping = true;
         rb2d.velocity = new Vector2(0.0f, jumpVelocity);
+        childanimatorEnel.SetBool("jump", true);
+        childanimatorTorokko.SetBool("jump", true);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -52,7 +63,19 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Floor"))
         {
             isJumping = false;
+            childanimatorEnel.SetBool("jump", false);
+            childanimatorTorokko.SetBool("jump", false);
         }
+    }
+    void ReturnToTitleWithoutAnimation()
+    {
+        //ゲームオブジェクトを無効にする
+        if(gameObjectToDisable !=null)
+        {
+            gameObjectToDisable.SetActive(false);
+        }
+        //タイトルシーンに移行
+        SceneManager.LoadScene("TitleCo");
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -80,11 +103,48 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine("Damage");
             }
         }
+        else if (col.gameObject.tag == "SuperEnemy")
+        {
+            float halfScaleY = transform.lossyScale.y / 2.0f;
+            float enemyHalfScaleY = col.transform.lossyScale.y / 2.0f;
+            if (transform.position.y - (halfScaleY - 0.1f) >= col.transform.position.y + (enemyHalfScaleY - 0.1f))
+            {
+                //もう一度跳ねる
+                ObjectCollision o = col.gameObject.GetComponent<ObjectCollision>();
+                otherJumpHeight = o.boundHeight;
+                o.playerStepOn = true;
+                // isEnemyOnJumping = true;
+                rb2d.velocity = new Vector2(0.0f, otherJumpHeight);
+                // animator.SetBool("jump", isEnemyOnJumping);
+            }
+            else
+            {
+                life -= 99999;
+                Debug.Log("life=" + life);
+                Camera.main.SendMessage("Clash");
+                StartCoroutine("Damage");
+            }
+        }
+        else if (col.gameObject.tag == "CantJumpEnemy")
+        {
+            life--;
+            Debug.Log("life=" + life);
+            Camera.main.SendMessage("Clash");
+            StartCoroutine("Damage");
+        }
         else if (col.gameObject.tag == "DeathPoint")
         {
             life -= 99999;//DeathPointに当たると99999ダメージ
             Debug.Log("life=" + life);
             Camera.main.SendMessage("Clash");
+            ReturnToTitleWithoutAnimation();//DeathPointで死んだときvoid ReturnToTitleを呼び出す
+        }
+        else if (col.gameObject.tag == "Truck")
+        {
+            life -= 99999;//DeathPointに当たると99999ダメージ
+            Debug.Log("life=" + life);
+            Camera.main.SendMessage("Clash");
+            ReturnToTitleWithoutAnimation();//DeathPointで死んだときvoid ReturnToTitleを呼び出す
         }
         else if (col.gameObject.tag == "Recovery")
         {
@@ -93,6 +153,30 @@ public class PlayerController : MonoBehaviour
                 life++;
                 Debug.Log("life=" + life);
             }
+        }
+    }
+    //GameObjectを無効にするメソッド
+    void DisableGameObject()
+    {
+        if(gameObjectToDisable != null)
+        {
+            gameObjectToDisable.SetActive(false);
+        }
+        if(gameObjectToEnable != null)
+        {
+            gameObjectToEnable.SetActive(true);
+        }
+    }
+    //GameObjectを有効にするメソッド
+    void EnableGameObject()
+    {
+        if(gameObjectToDisable != null)
+        {
+            gameObjectToDisable.SetActive(true);
+        }
+        if(gameObjectToEnable != null)
+        {
+            gameObjectToEnable.SetActive(false);
         }
     }
     IEnumerator Damage()

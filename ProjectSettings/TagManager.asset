@@ -8,7 +8,9 @@ TagManager:
   - Enemy
   - DeathPoint
   - Recovery
+  - CantJumpEnemy
   - SuperEnemy
+  - Truck
   layers:
   - Default
   - TransparentFX
