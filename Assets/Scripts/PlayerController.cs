@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
     {
         isJumping = true;
         rb2d.velocity = new Vector2(0.0f, jumpVelocity);
-
         childanimatorEnel.SetBool("jump", true);
         childanimatorTorokko.SetBool("jump", true);
     }
@@ -53,16 +52,13 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Floor"))
         {
             isJumping = false;
+            childanimatorEnel.SetBool("jump", false);
+            childanimatorTorokko.SetBool("jump", false);
         }
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Floor"))
-        {
-            childanimatorEnel.SetBool("jump", false);
-            childanimatorTorokko.SetBool("jump", false);
-        }
         //Enemyとぶつかった時にコルーチンを実行
         if (col.gameObject.tag == "Enemy")
         {
