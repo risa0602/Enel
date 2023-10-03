@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyRun : MonoBehaviour
 {
-    public float speed = 1.0f;
+    [Header("敵が向かってくる速度")] public float speed = 1.0f;
     void Update()
     {
         if(transform.position.x <= 15)
