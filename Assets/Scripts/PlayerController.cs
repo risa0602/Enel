@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
             {
                 life--;
                 Debug.Log("life=" + life);
-                Camera.main.SendMessage("Clash");
+                Camera.main.SendMessage("Clash",SendMessageOptions.DontRequireReceiver);
                 StartCoroutine("Damage");
             }
         }
