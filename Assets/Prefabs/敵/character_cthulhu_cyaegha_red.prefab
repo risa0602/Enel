@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8650218948752437488}
   - component: {fileID: 2971452124869732462}
   - component: {fileID: 8637644280805935054}
-  - component: {fileID: 4742521906714358016}
   - component: {fileID: 1907919479399833374}
   - component: {fileID: 3039688495904341857}
+  - component: {fileID: 4742521906714358016}
+  - component: {fileID: 3792809225051691837}
   m_Layer: 8
   m_Name: character_cthulhu_cyaegha_red
   m_TagString: Enemy
@@ -114,20 +115,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.5, y: 3}
   m_EdgeRadius: 0
---- !u!114 &4742521906714358016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7006370503417964177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e02cce2a61ec5e942878ad9f9c5ef0c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boundHeight: 20
-  playerStepOn: 0
 --- !u!114 &1907919479399833374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,3 +149,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4742521906714358016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7006370503417964177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e02cce2a61ec5e942878ad9f9c5ef0c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundHeight: 20
+  playerStepOn: 0
+--- !u!114 &3792809225051691837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7006370503417964177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a409b8f7795a64540a93585a4c9d8db0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 5
+  jumpInterval: 1.1
+  oc: {fileID: 4742521906714358016}

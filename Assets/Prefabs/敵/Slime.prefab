@@ -177,3 +177,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 5
   jumpInterval: 0.75
+  oc: {fileID: 6841135064066304467}

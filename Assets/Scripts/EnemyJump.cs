@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnemyJump : MonoBehaviour
 {
-    [Header("自動でジャンプしている高さ")]public float jumpForce = 5f; // ジャンプの力
-    [Header("ジャンプの間隔")]public float jumpInterval = 2f; // ジャンプの間隔
+    [Header("自動でジャンプしている高さ")] public float jumpForce = 5f; // ジャンプの力
+    [Header("ジャンプの間隔")] public float jumpInterval = 2f; // ジャンプの間隔
+    public ObjectCollision oc;
 
     private Rigidbody2D rb;
 
@@ -17,6 +18,9 @@ public class EnemyJump : MonoBehaviour
 
     void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        if (!oc.playerStepOn)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
     }
 }
