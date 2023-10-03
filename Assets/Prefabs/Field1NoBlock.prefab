@@ -32,7 +32,6 @@ Transform:
   m_Children:
   - {fileID: 4176284264059383627}
   - {fileID: 5595266123586269274}
-  - {fileID: 9150757963355067023}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -150,76 +149,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1564332995128934317, guid: 314c9e54417fec44da89710d39ff501e, type: 3}
   m_PrefabInstance: {fileID: 3188694751583211750}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &3552401864013412360
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 4869139125488947150}
-    m_Modifications:
-    - target: {fileID: 4742163049650711839, guid: bb883f6dac3646643bb00b163136fed4, type: 3}
-      propertyPath: m_Name
-      value: animal_crocodile_wani 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5742845224471718535, guid: bb883f6dac3646643bb00b163136fed4, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5742845224471718535, guid: bb883f6dac3646643bb00b163136fed4, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6445038
-      objectReference: {fileID: 0}
-    - target: {fileID: 5742845224471718535, guid: bb883f6dac3646643bb00b163136fed4, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6908614
-      objectReference: {fileID: 0}
-    - target: {fileID: 5742845224471718535, guid: bb883f6dac3646643bb00b163136fed4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.3271
-      objectReference: {fileID: 0}
-    - target: {fileID: 5742845224471718535, guid: bb883f6dac3646643bb00b163136fed4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 5742845224471718535, guid: bb883f6dac3646643bb00b163136fed4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5742845224471718535, guid: bb883f6dac3646643bb00b163136fed4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5742845224471718535, guid: bb883f6dac3646643bb00b163136fed4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5742845224471718535, guid: bb883f6dac3646643bb00b163136fed4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5742845224471718535, guid: bb883f6dac3646643bb00b163136fed4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5742845224471718535, guid: bb883f6dac3646643bb00b163136fed4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5742845224471718535, guid: bb883f6dac3646643bb00b163136fed4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5742845224471718535, guid: bb883f6dac3646643bb00b163136fed4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bb883f6dac3646643bb00b163136fed4, type: 3}
---- !u!4 &9150757963355067023 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5742845224471718535, guid: bb883f6dac3646643bb00b163136fed4, type: 3}
-  m_PrefabInstance: {fileID: 3552401864013412360}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6346627916645257207
 PrefabInstance:
