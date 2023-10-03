@@ -12,8 +12,8 @@ public class WaniMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.x < 5.2f){
-        transform.Translate(Vector3.up * 3f * Time.deltaTime );
+        if(transform.localPosition.x < 0.1f && transform.localPosition.y < 5){
+        transform.Translate((Vector3.up + Vector3.right * 3.5f) * 3f * Time.deltaTime );
 
         }
     }
