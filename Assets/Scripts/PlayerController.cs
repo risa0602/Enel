@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
     float otherJumpHeight;
     public Animator childanimatorEnel;
     public Animator childanimatorTorokko;
+    public GameObject gameObjectToDisable;
+    public GameObject gameObjectToEnable;
 
     void Awake()
     {
@@ -31,6 +34,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && !isJumping && !(rb2d.velocity.y < -0.5f))
         {
             Jump();
+        }
+        if ( life <= 0)
+        {
+            DisableGameObject();
+        }
+        else
+        {
+            EnableGameObject();
         }
     }
 
@@ -54,6 +65,16 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
         }
+    }
+    void ReturnToTitleWithoutAnimation()
+    {
+        //ゲームオブジェクトを無効にする
+        if(gameObjectToDisable !=null)
+        {
+            gameObjectToDisable.SetActive(false);
+        }
+        //タイトルシーンに移行
+        SceneManager.LoadScene("TitleCo");
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -91,6 +112,7 @@ public class PlayerController : MonoBehaviour
             life -= 99999;//DeathPointに当たると99999ダメージ
             Debug.Log("life=" + life);
             Camera.main.SendMessage("Clash");
+            ReturnToTitleWithoutAnimation();//DeathPointで死んだときvoid ReturnToTitleを呼び出す
         }
         else if (col.gameObject.tag == "Recovery")
         {
@@ -99,6 +121,30 @@ public class PlayerController : MonoBehaviour
                 life++;
                 Debug.Log("life=" + life);
             }
+        }
+    }
+    //GameObjectを無効にするメソッド
+    void DisableGameObject()
+    {
+        if(gameObjectToDisable != null)
+        {
+            gameObjectToDisable.SetActive(false);
+        }
+        if(gameObjectToEnable != null)
+        {
+            gameObjectToEnable.SetActive(true);
+        }
+    }
+    //GameObjectを有効にするメソッド
+    void EnableGameObject()
+    {
+        if(gameObjectToDisable != null)
+        {
+            gameObjectToDisable.SetActive(true);
+        }
+        if(gameObjectToEnable != null)
+        {
+            gameObjectToEnable.SetActive(false);
         }
     }
     IEnumerator Damage()
