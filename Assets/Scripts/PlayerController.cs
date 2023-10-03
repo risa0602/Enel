@@ -139,6 +139,13 @@ public class PlayerController : MonoBehaviour
             Camera.main.SendMessage("Clash");
             ReturnToTitleWithoutAnimation();//DeathPointで死んだときvoid ReturnToTitleを呼び出す
         }
+        else if (col.gameObject.tag == "Truck")
+        {
+            life -= 99999;//DeathPointに当たると99999ダメージ
+            Debug.Log("life=" + life);
+            Camera.main.SendMessage("Clash");
+            ReturnToTitleWithoutAnimation();//DeathPointで死んだときvoid ReturnToTitleを呼び出す
+        }
         else if (col.gameObject.tag == "Recovery")
         {
             if (life < 2)
