@@ -8,6 +8,6 @@ public class Title: MonoBehaviour
 {
     public void OnStartButtonClicked()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("check");
     }
 }
