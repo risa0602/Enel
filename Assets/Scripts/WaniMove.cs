@@ -13,7 +13,7 @@ public class WaniMove : MonoBehaviour
     void Update()
     {
         if(transform.localPosition.x < 0.1f && transform.localPosition.y < 5){
-        transform.Translate((Vector3.up + Vector3.right * 0.5f) * 9f * Time.deltaTime );
+        transform.Translate((Vector3.up + Vector3.right * 0.7f) * 9f * Time.deltaTime );
 
         }
     }
