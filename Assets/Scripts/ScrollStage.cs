@@ -8,7 +8,7 @@ public class ScrollStage : MonoBehaviour
     void Update()
     {
         transform.Translate(-1 * speed * Time.deltaTime,0,0);
-        if(transform.position.x <= -20)
+        if(transform.position.x <= -40)
         {
             Destroy(gameObject);
         }

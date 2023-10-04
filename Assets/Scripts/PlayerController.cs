@@ -54,7 +54,6 @@ public class PlayerController : MonoBehaviour
     {
         isJumping = true;
         rb2d.velocity = new Vector2(0.0f, jumpVelocity);
-
         childanimatorEnel.SetBool("jump", true);
         childanimatorTorokko.SetBool("jump", true);
     }
@@ -64,6 +63,8 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Floor"))
         {
             isJumping = false;
+            childanimatorEnel.SetBool("jump", false);
+            childanimatorTorokko.SetBool("jump", false);
         }
     }
     void ReturnToTitleWithoutAnimation()
@@ -79,11 +80,6 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.CompareTag("Floor"))
-        {
-        childanimatorEnel.SetBool("jump", false);
-        childanimatorTorokko.SetBool("jump", false);
-        }
         //Enemyとぶつかった時にコルーチンを実行
         if (col.gameObject.tag == "Enemy")
         {
@@ -107,7 +103,43 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine("Damage");
             }
         }
+        else if (col.gameObject.tag == "SuperEnemy")
+        {
+            float halfScaleY = transform.lossyScale.y / 2.0f;
+            float enemyHalfScaleY = col.transform.lossyScale.y / 2.0f;
+            if (transform.position.y - (halfScaleY - 0.1f) >= col.transform.position.y + (enemyHalfScaleY - 0.1f))
+            {
+                //もう一度跳ねる
+                ObjectCollision o = col.gameObject.GetComponent<ObjectCollision>();
+                otherJumpHeight = o.boundHeight;
+                o.playerStepOn = true;
+                // isEnemyOnJumping = true;
+                rb2d.velocity = new Vector2(0.0f, otherJumpHeight);
+                // animator.SetBool("jump", isEnemyOnJumping);
+            }
+            else
+            {
+                life -= 99999;
+                Debug.Log("life=" + life);
+                Camera.main.SendMessage("Clash");
+                StartCoroutine("Damage");
+            }
+        }
+        else if (col.gameObject.tag == "CantJumpEnemy")
+        {
+            life--;
+            Debug.Log("life=" + life);
+            Camera.main.SendMessage("Clash");
+            StartCoroutine("Damage");
+        }
         else if (col.gameObject.tag == "DeathPoint")
+        {
+            life -= 99999;//DeathPointに当たると99999ダメージ
+            Debug.Log("life=" + life);
+            Camera.main.SendMessage("Clash");
+            ReturnToTitleWithoutAnimation();//DeathPointで死んだときvoid ReturnToTitleを呼び出す
+        }
+        else if (col.gameObject.tag == "Truck")
         {
             life -= 99999;//DeathPointに当たると99999ダメージ
             Debug.Log("life=" + life);
