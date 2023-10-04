@@ -130,6 +130,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2411544416510764891, guid: 314c9e54417fec44da89710d39ff501e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2562220003359553634, guid: 314c9e54417fec44da89710d39ff501e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 3801847868953311852, guid: 314c9e54417fec44da89710d39ff501e, type: 3}
       propertyPath: m_Name
       value: Floor1
@@ -216,6 +224,14 @@ PrefabInstance:
     - target: {fileID: 1564332995128934317, guid: 314c9e54417fec44da89710d39ff501e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411544416510764891, guid: 314c9e54417fec44da89710d39ff501e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2562220003359553634, guid: 314c9e54417fec44da89710d39ff501e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3801847868953311852, guid: 314c9e54417fec44da89710d39ff501e, type: 3}
       propertyPath: m_Name
