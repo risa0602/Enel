@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public Animator childanimatorTorokko;
     public GameObject gameObjectToDisable;
     public GameObject gameObjectToEnable;
+    public Crash crashScript;
 
     void Awake()
     {
@@ -144,7 +145,6 @@ public class PlayerController : MonoBehaviour
             life -= 99999;//DeathPointに当たると99999ダメージ
             Debug.Log("life=" + life);
             Camera.main.SendMessage("Clash");
-            ReturnToTitleWithoutAnimation();//DeathPointで死んだときvoid ReturnToTitleを呼び出す
         }
         else if (col.gameObject.tag == "Recovery")
         {

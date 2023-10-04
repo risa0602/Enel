@@ -11,6 +11,7 @@ TagManager:
   - CantJumpEnemy
   - SuperEnemy
   - Truck
+  - Crash
   layers:
   - Default
   - TransparentFX
