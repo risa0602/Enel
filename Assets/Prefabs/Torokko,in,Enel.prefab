@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7711989448988973676}
   - component: {fileID: 993711594146453625}
   - component: {fileID: 2054893884}
+  - component: {fileID: 215571785260215410}
   m_Layer: 6
   m_Name: Torokko,in,Enel
   m_TagString: Untagged
@@ -74,6 +75,18 @@ MonoBehaviour:
   childanimatorTorokko: {fileID: 6030895249709104448}
   gameObjectToDisable: {fileID: 3922420698173745828}
   gameObjectToEnable: {fileID: 2350087844132639754, guid: d243a2b1dc13e3c43aa78f44f6065032, type: 3}
+--- !u!114 &215571785260215410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3922420698173745828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181caf7a3b5c1ca4c823ca271a1b9ecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5367047890705639815
 GameObject:
   m_ObjectHideFlags: 0

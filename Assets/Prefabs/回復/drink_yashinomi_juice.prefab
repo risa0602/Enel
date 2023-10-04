@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8118785298447017997}
   m_Layer: 0
   m_Name: drink_yashinomi_juice
-  m_TagString: Untagged
+  m_TagString: Recovery
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

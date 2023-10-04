@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8196451205520997744}
   m_Layer: 0
   m_Name: drink_banana_juice
-  m_TagString: Untagged
+  m_TagString: Recovery
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
