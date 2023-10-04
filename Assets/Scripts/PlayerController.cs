@@ -18,7 +18,8 @@ public class PlayerController : MonoBehaviour
     public Animator childanimatorTorokko;
     public GameObject gameObjectToDisable;
     public GameObject gameObjectToEnable;
-    public Crash crashScript;
+    public GameObject[] obToHide;
+    public GameObject[] obToShow;
 
     void Awake()
     {
@@ -81,6 +82,23 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        if(col.gameObject.CompareTag("Truck"))
+        {
+            foreach(GameObject obj in obToHide)
+           {
+            if(obj != null)
+            {
+                obj.SetActive(false);
+            }
+           } 
+           foreach ( GameObject obj in obToShow)
+           {
+            if(obj != null)
+            {
+                obj.SetActive(true);
+            }
+           }
+        }
         //Enemyとぶつかった時にコルーチンを実行
         if (col.gameObject.tag == "Enemy")
         {
@@ -100,7 +118,7 @@ public class PlayerController : MonoBehaviour
             {
                 life--;
                 Debug.Log("life=" + life);
-                Camera.main.SendMessage("Clash",SendMessageOptions.DontRequireReceiver);
+                Camera.main.SendMessage("Clash");
                 StartCoroutine("Damage");
             }
         }

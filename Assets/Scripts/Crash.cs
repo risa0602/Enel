@@ -52,4 +52,7 @@ public class Crash : MonoBehaviour
             gameObjectToEnable.SetActive(false);
         }
     }
+    public void CrashMethod()
+    {}
+
 }
