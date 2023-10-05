@@ -12,5 +12,9 @@ public class ScrollStage : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if(transform.position.y <= -60)
+        {
+            Destroy(gameObject);
+        }
     }
 }

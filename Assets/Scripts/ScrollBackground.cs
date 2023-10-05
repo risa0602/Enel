@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ScrollBackground : MonoBehaviour
 {
-    public float speed = 1.0f;
-    public float startPosition;
-    public float endPosition;
+    public float speed = 8.0f;
+    public float startPosition = 16;
+    public float endPosition = -16;
 
     void Update()
     {
