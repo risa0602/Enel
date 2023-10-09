@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 2
-  jumpVelocity: 30
+  jumpVelocity: 28
   childanimatorEnel: {fileID: 8406469436891846223}
   childanimatorTorokko: {fileID: 6030895249709104448}
   gameObjectToDisable: {fileID: 3922420698173745828}

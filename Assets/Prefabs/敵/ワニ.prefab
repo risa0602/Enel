@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 1280276881459058961}
   - component: {fileID: 4742163049650711838}
   m_Layer: 8
-  m_Name: animal_crocodile_wani 1
+  m_Name: "\u30EF\u30CB"
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

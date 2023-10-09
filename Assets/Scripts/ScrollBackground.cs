@@ -6,7 +6,7 @@ public class ScrollBackground : MonoBehaviour
 {
     public float speed = 8.0f;
     public float startPosition = 16;
-    public float endPosition = -16;
+    public float endPosition = -20;
 
     void Update()
     {
