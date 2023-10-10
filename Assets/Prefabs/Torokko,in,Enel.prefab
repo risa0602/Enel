@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 993711594146453625}
   - component: {fileID: 2054893884}
   - component: {fileID: 215571785260215410}
+  - component: {fileID: 331380628526490306}
+  - component: {fileID: -8713811679484712472}
   m_Layer: 6
   m_Name: Torokko,in,Enel
   m_TagString: Untagged
@@ -70,11 +72,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 2
-  jumpVelocity: 25
+  jumpVelocity: 28
   childanimatorEnel: {fileID: 8406469436891846223}
   childanimatorTorokko: {fileID: 6030895249709104448}
   gameObjectToDisable: {fileID: 3922420698173745828}
   gameObjectToEnable: {fileID: 2350087844132639754, guid: d243a2b1dc13e3c43aa78f44f6065032, type: 3}
+  obToHide: []
+  obToShow: []
+  jumpSound: {fileID: 8300000, guid: 3217dad647d57a94c8f3cbf3a5bb536f, type: 3}
+  enemyOnJumpSound: {fileID: 8300000, guid: c1629398ed1d12644b94c29410fb64a5, type: 3}
 --- !u!114 &215571785260215410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,6 +93,116 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181caf7a3b5c1ca4c823ca271a1b9ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &331380628526490306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3922420698173745828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2cd892076f41234aaa266566bafc972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xThreshold: 0.1
+  returnSpeed: 5
+--- !u!82 &-8713811679484712472
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3922420698173745828}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5367047890705639815
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +330,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -1.16}
-  m_Size: {x: 3, y: 0.1}
+  m_Size: {x: 2.7, y: 0.1}
   m_Direction: 1
 --- !u!95 &6030895249709104448
 Animator:

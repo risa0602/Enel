@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
     public GameObject gameObjectToEnable;
     public GameObject[] obToHide;
     public GameObject[] obToShow;
+    public AudioClip jumpSound; // ジャンプの音声ファイル
+    public AudioClip enemyOnJumpSound; // 敵を踏んだときの音声ファイル
+    private AudioSource audioSource; // 効果音を再生するためのAudioSource
+
 
     void Awake()
     {
@@ -30,6 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         rd = GetComponentInChildren<SpriteRenderer>();
         bc2d = GetComponentInChildren<BoxCollider2D>();
+        audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -37,7 +42,7 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
-        if ( life <= 0)
+        if (life <= 0)
         {
             DisableGameObject();
         }
@@ -58,6 +63,7 @@ public class PlayerController : MonoBehaviour
         rb2d.velocity = new Vector2(0.0f, jumpVelocity);
         childanimatorEnel.SetBool("jump", true);
         childanimatorTorokko.SetBool("jump", true);
+        audioSource.PlayOneShot(jumpSound); // ジャンプ時の効果音を再生
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -72,7 +78,7 @@ public class PlayerController : MonoBehaviour
     void ReturnToTitleWithoutAnimation()
     {
         //ゲームオブジェクトを無効にする
-        if(gameObjectToDisable !=null)
+        if (gameObjectToDisable != null)
         {
             gameObjectToDisable.SetActive(false);
         }
@@ -82,22 +88,22 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.CompareTag("Truck"))
+        if (col.gameObject.CompareTag("Truck"))
         {
-            foreach(GameObject obj in obToHide)
-           {
-            if(obj != null)
+            foreach (GameObject obj in obToHide)
             {
-                obj.SetActive(false);
+                if (obj != null)
+                {
+                    obj.SetActive(false);
+                }
             }
-           } 
-           foreach ( GameObject obj in obToShow)
-           {
-            if(obj != null)
+            foreach (GameObject obj in obToShow)
             {
-                obj.SetActive(true);
+                if (obj != null)
+                {
+                    obj.SetActive(true);
+                }
             }
-           }
         }
         //Enemyとぶつかった時にコルーチンを実行
         if (col.gameObject.tag == "Enemy")
@@ -112,7 +118,7 @@ public class PlayerController : MonoBehaviour
                 o.playerStepOn = true;
                 // isEnemyOnJumping = true;
                 rb2d.velocity = new Vector2(0.0f, otherJumpHeight);
-                // animator.SetBool("jump", isEnemyOnJumping);
+                audioSource.PlayOneShot(enemyOnJumpSound);
             }
             else
             {
@@ -134,7 +140,7 @@ public class PlayerController : MonoBehaviour
                 o.playerStepOn = true;
                 // isEnemyOnJumping = true;
                 rb2d.velocity = new Vector2(0.0f, otherJumpHeight);
-                // animator.SetBool("jump", isEnemyOnJumping);
+                audioSource.PlayOneShot(enemyOnJumpSound);
             }
             else
             {
@@ -176,11 +182,11 @@ public class PlayerController : MonoBehaviour
     //GameObjectを無効にするメソッド
     void DisableGameObject()
     {
-        if(gameObjectToDisable != null)
+        if (gameObjectToDisable != null)
         {
             gameObjectToDisable.SetActive(false);
         }
-        if(gameObjectToEnable != null)
+        if (gameObjectToEnable != null)
         {
             gameObjectToEnable.SetActive(true);
         }
@@ -188,11 +194,11 @@ public class PlayerController : MonoBehaviour
     //GameObjectを有効にするメソッド
     void EnableGameObject()
     {
-        if(gameObjectToDisable != null)
+        if (gameObjectToDisable != null)
         {
             gameObjectToDisable.SetActive(true);
         }
-        if(gameObjectToEnable != null)
+        if (gameObjectToEnable != null)
         {
             gameObjectToEnable.SetActive(false);
         }
