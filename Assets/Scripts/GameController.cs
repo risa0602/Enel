@@ -45,6 +45,11 @@ public class GameController : MonoBehaviour
         {
             so.enabled = false; 
         }
+        ScrollBackground[] scrollBackgrounds = FindObjectsOfType<ScrollBackground>();
+        foreach (ScrollBackground sb in scrollBackgrounds)
+        {
+            sb.enabled = false; 
+        }
             enabled = false;
             Invoke("ReturnToTitle",1.0f);
     }
