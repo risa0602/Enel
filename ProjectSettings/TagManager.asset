@@ -12,6 +12,7 @@ TagManager:
   - SuperEnemy
   - Truck
   - Crash
+  - Goal
   layers:
   - Default
   - TransparentFX
