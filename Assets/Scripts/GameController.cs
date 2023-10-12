@@ -9,7 +9,8 @@ public class GameController : MonoBehaviour
     enum State
     {
         Playing,
-        GameOver
+        GameOver,
+        Gameclear
     }
     State state;
     public PlayerController pl;
@@ -53,4 +54,5 @@ public class GameController : MonoBehaviour
             enabled = false;
             Invoke("ReturnToTitle",1.0f);
     }
+
 }
