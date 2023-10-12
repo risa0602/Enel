@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
@@ -20,5 +21,6 @@ public class Goal : MonoBehaviour
             {
                 scrollStage.StopScrolling();
             }
+    SceneManager.LoadScene("TitleCo");
     }
 }
