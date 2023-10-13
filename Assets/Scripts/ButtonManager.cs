@@ -10,6 +10,7 @@ public class ButtonManager : MonoBehaviour
     public Image stage1ClearMark;
     public Image stage2ClearMark;
     public Image stage3ClearMark;
+    public Text credit;
 
     public Image stage1OnEnel;
     public Image stage2OnEnel;
@@ -29,6 +30,8 @@ public class ButtonManager : MonoBehaviour
         stage1ClearMark.enabled = StageManager.stage1Cleared;
         stage2ClearMark.enabled = StageManager.stage2Cleared;
         stage3ClearMark.enabled = StageManager.stage3Cleared;
+        credit.enabled = StageManager.stage3Cleared;
+
 
         stage1OnEnel.enabled = !StageManager.stage1Cleared;
         stage2OnEnel.enabled = StageManager.stage1Cleared;

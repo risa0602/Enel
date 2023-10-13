@@ -1256,6 +1256,7 @@ MonoBehaviour:
   stage1ClearMark: {fileID: 1087319264}
   stage2ClearMark: {fileID: 2031235069}
   stage3ClearMark: {fileID: 1835088675}
+  credit: {fileID: 373871383}
   stage1OnEnel: {fileID: 1100886779}
   stage2OnEnel: {fileID: 1069117053}
   stage3OnEnel: {fileID: 860199807}
