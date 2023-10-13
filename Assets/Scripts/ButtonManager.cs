@@ -33,6 +33,13 @@ public class ButtonManager : MonoBehaviour
         stage1OnEnel.enabled = !StageManager.stage1Cleared;
         stage2OnEnel.enabled = StageManager.stage1Cleared;
         stage3OnEnel.enabled = StageManager.stage2Cleared;
+        /*
+        if (StageManager.stage2Cleared)
+        {
+            stage2OnEnel.enabled = false;
+            stage3OnEnel.enabled = StageManager.stage2Cleared;
+        }
+        */
     }
 
     void LoadStage1()
