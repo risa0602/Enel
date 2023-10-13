@@ -10,5 +10,6 @@ public class SoundControll : MonoBehaviour
  void OnCollisionEnter(Collision other)
   {
     AudioSource.PlayClipAtPoint(se,transform.position);
+    Debug.Log("on");
   }
 }
