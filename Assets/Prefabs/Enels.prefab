@@ -137,6 +137,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 6732893136640740659}
     m_Modifications:
     - target: {fileID: 2054893884, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
+      propertyPath: Rs
+      value: 
+      objectReference: {fileID: 8300000, guid: 4bf7cf18f06a359459e6d1bc4bed48e5, type: 3}
+    - target: {fileID: 2054893884, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
       propertyPath: obToHide
       value: 
       objectReference: {fileID: 7718948163708781825}

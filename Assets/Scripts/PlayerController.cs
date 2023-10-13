@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpSound; // ジャンプの音声ファイル
     public AudioClip enemyOnJumpSound; // 敵を踏んだときの音声ファイル
     private AudioSource audioSource; // 効果音を再生するためのAudioSource
+    public AudioClip Rs; // 敵を踏んだときの音声ファイル
 
 
     void Awake()
@@ -172,6 +173,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (col.gameObject.tag == "Recovery")
         {
+            audioSource.PlayOneShot(Rs);
             if (life < 2)
             {
                 life++;

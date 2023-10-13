@@ -60,7 +60,7 @@ public class GameController : MonoBehaviour
             sb.enabled = false;
         }
         enabled = false;
-        Invoke("ReturnToTitle", 1.0f);
+        Invoke("ReturnToTitle", 1.6f);
     }
 
 }
