@@ -6,12 +6,14 @@ public class Goal : MonoBehaviour
     public AudioClip se;
     AudioSource audioSource; // 効果音を再生するためのAudioSource
     AudioSource mainCameraAudio;
+    string sceneName;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         // MainCameraにアタッチされたAudioSourceを取得
         mainCameraAudio = Camera.main.GetComponent<AudioSource>();
+        sceneName = SceneManager.GetActiveScene().name;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -40,6 +42,19 @@ public class Goal : MonoBehaviour
 
     void ReturnToTitle()
     {
+        if (sceneName == "Stage1")
+        {
+            StageManager.stage1Cleared = true;
+        }
+        else if (sceneName == "Stage2")
+        {
+            StageManager.stage2Cleared = true;
+        }
+        else if (sceneName == "Stage3")
+        {
+            StageManager.stage3Cleared = true;
+        }
+
         SceneManager.LoadScene("TitleCo");
     }
 
