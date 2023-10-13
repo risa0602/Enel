@@ -3,24 +3,59 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
+    public AudioClip se;
+    AudioSource audioSource; // 効果音を再生するためのAudioSource
+    AudioSource mainCameraAudio;
+    string sceneName;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        // MainCameraにアタッチされたAudioSourceを取得
+        mainCameraAudio = Camera.main.GetComponent<AudioSource>();
+        sceneName = SceneManager.GetActiveScene().name;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // 衝突したオブジェクトが "Goal" タグを持つ場合
-            // "ScrollBackground" スクリプトを持つオブジェクトを停止
-            
-            Debug.Log("ok");
-            ScrollBackground[] scrollBackgrounds = FindObjectsOfType<ScrollBackground>();
-            foreach (ScrollBackground scrollBackground in scrollBackgrounds)
-            {
-                scrollBackground.StopScrolling();
-            }
+        Debug.Log("ok");
 
-            // "ScrollStage" スクリプトを持つオブジェクトを停止
-            ScrollStage[] scrollStages = FindObjectsOfType<ScrollStage>();
-            foreach (ScrollStage scrollStage in scrollStages)
-            {
-                scrollStage.StopScrolling();
-            }
-    SceneManager.LoadScene("TitleCo");
+        mainCameraAudio.Stop();
+        audioSource.PlayOneShot(se);
+
+        // "ScrollBackground" スクリプトを持つオブジェクトを停止
+        ScrollBackground[] scrollBackgrounds = FindObjectsOfType<ScrollBackground>();
+        foreach (ScrollBackground scrollBackground in scrollBackgrounds)
+        {
+            scrollBackground.StopScrolling();
+        }
+
+        // "ScrollStage" スクリプトを持つオブジェクトを停止
+        ScrollStage[] scrollStages = FindObjectsOfType<ScrollStage>();
+        foreach (ScrollStage scrollStage in scrollStages)
+        {
+            scrollStage.StopScrolling();
+        }
+
+        Invoke("ReturnToTitle", 2.0f);
     }
+
+    void ReturnToTitle()
+    {
+        if (sceneName == "Stage1")
+        {
+            StageManager.stage1Cleared = true;
+        }
+        else if (sceneName == "Stage2")
+        {
+            StageManager.stage2Cleared = true;
+        }
+        else if (sceneName == "Stage3")
+        {
+            StageManager.stage3Cleared = true;
+        }
+
+        SceneManager.LoadScene("TitleCo");
+    }
+
 }
