@@ -20,10 +20,18 @@ public class PlayerController : MonoBehaviour
     public GameObject gameObjectToEnable;
     public GameObject[] obToHide;
     public GameObject[] obToShow;
+    AudioSource audioSource; // 効果音を再生するためのAudioSource
     public AudioClip jumpSound; // ジャンプの音声ファイル
     public AudioClip enemyOnJumpSound; // 敵を踏んだときの音声ファイル
-    private AudioSource audioSource; // 効果音を再生するためのAudioSource
-    public AudioClip Rs; // 敵を踏んだときの音声ファイル
+    public AudioClip Rs; //回復アイテムに触れた時の音声ファイル
+    public AudioClip deathBGM; //死んだときの音声ファイル
+    public float thresholdX = -15f; // プレイヤーの x 座標の閾値
+    public float thresholdY = -15f; // プレイヤーの y 座標の閾値
+    bool isSoundPlaying = false;
+    [Header("落下時のタイトルに戻るまでの時間")] public float delayBeforeReturn = 3f; // タイトルに戻るまでの待ち時間
+    AudioSource mainCameraAudio;
+    public LifePanel lifePanel;
+    public AudioClip damageSound; // ジャンプの音声ファイル
 
 
     void Awake()
@@ -36,6 +44,8 @@ public class PlayerController : MonoBehaviour
         rd = GetComponentInChildren<SpriteRenderer>();
         bc2d = GetComponentInChildren<BoxCollider2D>();
         audioSource = GetComponent<AudioSource>();
+        mainCameraAudio = Camera.main.GetComponent<AudioSource>();
+        lifePanel = GameObject.FindObjectOfType<LifePanel>();
     }
     void Update()
     {
@@ -43,6 +53,7 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+
         if (life <= 0)
         {
             DisableGameObject();
@@ -50,6 +61,33 @@ public class PlayerController : MonoBehaviour
         else
         {
             EnableGameObject();
+        }
+
+        if (transform.position.x < thresholdX && !isSoundPlaying || transform.position.y < thresholdY && !isSoundPlaying)
+        {
+            Camera.main.SendMessage("Clash");
+            mainCameraAudio.Stop();
+            audioSource.PlayOneShot(damageSound);
+            audioSource.PlayOneShot(deathBGM); // 死亡時の効果音を再生
+            isSoundPlaying = true;
+            lifePanel.HideHearts();
+
+            // "ScrollBackground" スクリプトを持つオブジェクトを停止
+            ScrollBackground[] scrollBackgrounds = FindObjectsOfType<ScrollBackground>();
+            foreach (ScrollBackground scrollBackground in scrollBackgrounds)
+            {
+                scrollBackground.StopScrolling();
+            }
+
+            // "ScrollStage" スクリプトを持つオブジェクトを停止
+            ScrollStage[] scrollStages = FindObjectsOfType<ScrollStage>();
+            foreach (ScrollStage scrollStage in scrollStages)
+            {
+                scrollStage.StopScrolling();
+            }
+
+            // delayBeforeReturn秒後にタイトルに戻る
+            Invoke("ReturnToTitleWithoutAnimation", delayBeforeReturn);
         }
     }
 
@@ -78,11 +116,14 @@ public class PlayerController : MonoBehaviour
     }
     void ReturnToTitleWithoutAnimation()
     {
+        /*
         //ゲームオブジェクトを無効にする
         if (gameObjectToDisable != null)
         {
             gameObjectToDisable.SetActive(false);
         }
+        */
+
         //タイトルシーンに移行
         SceneManager.LoadScene("TitleCo");
     }
@@ -107,7 +148,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         //Enemyとぶつかった時にコルーチンを実行
-        if (col.gameObject.tag == "Enemy")
+        if (col.gameObject.tag == "Enemy" && life > 0)
         {
             float halfScaleY = transform.lossyScale.y / 2.0f;
             float enemyHalfScaleY = col.transform.lossyScale.y / 2.0f;
@@ -126,10 +167,11 @@ public class PlayerController : MonoBehaviour
                 life--;
                 Debug.Log("life=" + life);
                 Camera.main.SendMessage("Clash");
+                audioSource.PlayOneShot(damageSound);
                 StartCoroutine("Damage");
             }
         }
-        else if (col.gameObject.tag == "SuperEnemy")
+        else if (col.gameObject.tag == "SuperEnemy" && life > 0)
         {
             float halfScaleY = transform.lossyScale.y / 2.0f;
             float enemyHalfScaleY = col.transform.lossyScale.y / 2.0f;
@@ -148,26 +190,31 @@ public class PlayerController : MonoBehaviour
                 life -= 99999;
                 Debug.Log("life=" + life);
                 Camera.main.SendMessage("Clash");
+                audioSource.PlayOneShot(damageSound);
                 StartCoroutine("Damage");
             }
         }
-        else if (col.gameObject.tag == "CantJumpEnemy")
+        else if (col.gameObject.tag == "CantJumpEnemy" && life > 0)
         {
             life--;
             Debug.Log("life=" + life);
             Camera.main.SendMessage("Clash");
+            audioSource.PlayOneShot(damageSound);
             StartCoroutine("Damage");
         }
+        /*
         else if (col.gameObject.tag == "DeathPoint")
-        {
+        { 
+            Camera.main.SendMessage("Clash");
+            Invoke("ReturnToTitleWithoutAnimation", 3.0f);
             life -= 99999;//DeathPointに当たると99999ダメージ
             Debug.Log("life=" + life);
-            Camera.main.SendMessage("Clash");
             ReturnToTitleWithoutAnimation();//DeathPointで死んだときvoid ReturnToTitleを呼び出す
         }
+        */
         else if (col.gameObject.tag == "Truck")
         {
-            life -= 99999;//DeathPointに当たると99999ダメージ
+            life -= 99999;
             Debug.Log("life=" + life);
             Camera.main.SendMessage("Clash");
         }
@@ -186,7 +233,18 @@ public class PlayerController : MonoBehaviour
     {
         if (gameObjectToDisable != null)
         {
-            gameObjectToDisable.SetActive(false);
+            Renderer[] renderers = GetComponentsInChildren<Renderer>();
+            foreach (Renderer renderer in renderers)
+            {
+                renderer.enabled = false;
+            }
+            Collider[] colliders = GetComponentsInChildren<Collider>();
+            foreach (Collider collider in colliders)
+            {
+                collider.enabled = false;
+            }
+            isJumping = true;
+            // gameObjectToDisable.SetActive(false);
         }
         if (gameObjectToEnable != null)
         {
@@ -207,7 +265,6 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator Damage()
     {
-
         // 子オブジェクトを含む親オブジェクトを取得
         GameObject parentObject = GameObject.Find("Torokko,in,Enel");
 

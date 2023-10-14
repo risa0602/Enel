@@ -49,16 +49,19 @@ public class GameController : MonoBehaviour
     {
         state = State.GameOver;
         mainCameraAudio.Stop();
+
         ScrollStage[] scrollStages = FindObjectsOfType<ScrollStage>();
         foreach (ScrollStage so in scrollStages)
         {
             so.enabled = false;
         }
+
         ScrollBackground[] scrollBackgrounds = FindObjectsOfType<ScrollBackground>();
         foreach (ScrollBackground sb in scrollBackgrounds)
         {
             sb.enabled = false;
         }
+
         enabled = false;
         Invoke("ReturnToTitle", 1.6f);
     }

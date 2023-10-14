@@ -17,7 +17,7 @@ public class DeathBgm : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("OK");
+        Debug.Log("other collidion");
         if (other.CompareTag("Player"))
         {
             Debug.Log("OK");
