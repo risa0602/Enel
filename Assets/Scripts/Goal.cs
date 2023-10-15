@@ -55,6 +55,8 @@ public class Goal : MonoBehaviour
             StageManager.stage3Cleared = true;
         }
 
+        StageManager.SaveProgress();
+
         SceneManager.LoadScene("TitleCo");
     }
 
