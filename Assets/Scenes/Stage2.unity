@@ -3434,7 +3434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2918687042512920641, guid: 14e26435a57bd764db516c988593fdc3, type: 3}
       propertyPath: m_SortingOrder
-      value: -3
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 2918687042512920644, guid: 14e26435a57bd764db516c988593fdc3, type: 3}
       propertyPath: m_audioClip
@@ -4843,7 +4843,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fcdf6e7c870d56441afda00a09b1d1ab, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5703,6 +5703,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1599604195}
     m_Modifications:
+    - target: {fileID: 1016787372827421796, guid: 494d55b14130f3e42b26413f4b7b7181, type: 3}
+      propertyPath: jumpInterval
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8181171448383682226, guid: 494d55b14130f3e42b26413f4b7b7181, type: 3}
       propertyPath: m_Name
       value: "\u30BE\u30F3\u30D32"
@@ -6069,6 +6073,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1599604195}
     m_Modifications:
+    - target: {fileID: 3978545089799734086, guid: b8e5d7a0af8d1114eb22f7d1cd058d5a, type: 3}
+      propertyPath: jumpInterval
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5585419392111051473, guid: b8e5d7a0af8d1114eb22f7d1cd058d5a, type: 3}
       propertyPath: m_RootOrder
       value: 6

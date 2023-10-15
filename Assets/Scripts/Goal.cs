@@ -37,7 +37,7 @@ public class Goal : MonoBehaviour
             scrollStage.StopScrolling();
         }
 
-        Invoke("ReturnToTitle", 2.0f);
+        Invoke("ReturnToTitle", 3.0f);
     }
 
     void ReturnToTitle()

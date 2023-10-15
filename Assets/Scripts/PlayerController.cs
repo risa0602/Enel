@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour
     AudioSource mainCameraAudio;
     public LifePanel lifePanel;
     public AudioClip damageSound; // ジャンプの音声ファイル
+    public AudioClip fallSound;
+    public AudioClip zombieSound;
+    public AudioClip makibishiSound;
 
 
     void Awake()
@@ -67,7 +70,7 @@ public class PlayerController : MonoBehaviour
         {
             Camera.main.SendMessage("Clash");
             mainCameraAudio.Stop();
-            audioSource.PlayOneShot(damageSound);
+            audioSource.PlayOneShot(fallSound);
             audioSource.PlayOneShot(deathBGM); // 死亡時の効果音を再生
             isSoundPlaying = true;
             lifePanel.HideHearts();
@@ -190,7 +193,7 @@ public class PlayerController : MonoBehaviour
                 life -= 99999;
                 Debug.Log("life=" + life);
                 Camera.main.SendMessage("Clash");
-                audioSource.PlayOneShot(damageSound);
+                audioSource.PlayOneShot(zombieSound);
                 StartCoroutine("Damage");
             }
         }
@@ -199,7 +202,7 @@ public class PlayerController : MonoBehaviour
             life--;
             Debug.Log("life=" + life);
             Camera.main.SendMessage("Clash");
-            audioSource.PlayOneShot(damageSound);
+            audioSource.PlayOneShot(makibishiSound);
             StartCoroutine("Damage");
         }
         /*

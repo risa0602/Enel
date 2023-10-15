@@ -136,7 +136,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3e73b81015005c54f905dcd55cc157dd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -233,6 +233,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 6732893136640740659}
     m_Modifications:
     - target: {fileID: -8713811679484712472, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8713811679484712472, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
       propertyPath: DopplerLevel
       value: 0
       objectReference: {fileID: 0}
@@ -257,8 +261,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7461455489566340624}
     - target: {fileID: 2054893884, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
+      propertyPath: fallSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a58dc46db4856c478f5f048993597ec, type: 3}
+    - target: {fileID: 2054893884, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054893884, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
+      propertyPath: thresholdY
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 2054893884, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
       propertyPath: crashScript
@@ -269,9 +281,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 7a58dc46db4856c478f5f048993597ec, type: 3}
     - target: {fileID: 2054893884, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
+      propertyPath: zombieSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b2d936c567a1a3f44b47dd2bd238c1df, type: 3}
+    - target: {fileID: 2054893884, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
       propertyPath: truckAnimator
       value: 
       objectReference: {fileID: 7461455489566340624}
+    - target: {fileID: 2054893884, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
+      propertyPath: makibishiSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d021194f7c2b8de4590a07cf73122cb4, type: 3}
+    - target: {fileID: 2054893884, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
+      propertyPath: enemyOnJumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 18b84a9f310541940915879278fb6b9a, type: 3}
     - target: {fileID: 2054893884, guid: 5a04ceedaf0e33d4b9693506bb0d65e3, type: 3}
       propertyPath: gameObjectToEnable
       value: 
@@ -676,7 +700,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fd89f37262303e94ab51eb20d273a2da, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
