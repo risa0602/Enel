@@ -8,6 +8,7 @@ public class ResetSaveData : MonoBehaviour
         PlayerPrefs.DeleteAll(); // すべてのセーブデータを削除
         StageManager.ResetClearStatus();
         Debug.Log("セーブデータがリセットされました。");
+        SkyboxManager.previousSkybox = null;
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
     }
